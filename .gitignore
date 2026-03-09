@@ -1,0 +1,8 @@
+.env
+.tmp/
+credentials.json
+token.json
+AGENTS.md
+AGENT_instructions.md
+CLAUDE.md
+GEMINI.md

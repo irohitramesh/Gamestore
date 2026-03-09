@@ -1,0 +1,174 @@
+.game-card {
+    background: transparent;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.game-card:hover {
+    cursor: pointer;
+}
+
+.game-card-link {
+    text-decoration: none;
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.game-image-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    position: relative;
+}
+
+.game-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.game-card:hover .game-image {
+    transform: scale(1.05);
+}
+
+.card-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.game-card:hover .card-image-overlay {
+    opacity: 1;
+}
+
+/* Wishlist Button on Card */
+.card-wishlist-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.2s ease;
+    z-index: 2;
+}
+
+.game-card:hover .card-wishlist-btn {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.card-wishlist-btn:hover {
+    background: rgba(231, 76, 60, 0.3);
+    border-color: rgba(231, 76, 60, 0.5);
+    color: #e74c3c;
+}
+
+.card-wishlist-btn.wishlisted {
+    opacity: 1;
+    color: #e74c3c;
+    background: rgba(231, 76, 60, 0.2);
+    border-color: rgba(231, 76, 60, 0.3);
+}
+
+/* Discount Badge on Image */
+.card-discount-overlay {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: #2ecc71;
+    color: #000;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    z-index: 2;
+}
+
+.game-info {
+    padding: 0.75rem 0.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.game-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+    line-height: 1.3;
+    color: #eee;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    transition: color 0.2s;
+}
+
+.game-card:hover .game-title {
+    color: #fff;
+}
+
+.game-subtitle {
+    font-size: 0.8rem;
+    color: #777;
+    margin-bottom: 0.5rem;
+    flex: 1;
+}
+
+.game-pricing {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.discount-badge {
+    background: #2ecc71;
+    color: #000;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.price-col {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.original-price {
+    color: #777;
+    text-decoration: line-through;
+    font-size: 0.8rem;
+}
+
+.current-price {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}

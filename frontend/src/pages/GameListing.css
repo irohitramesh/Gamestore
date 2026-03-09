@@ -1,0 +1,382 @@
+.game-listing-page {
+    display: flex;
+    gap: 2rem;
+    min-height: 70vh;
+}
+
+/* Filters Sidebar */
+.filters-sidebar {
+    width: 260px;
+    background: var(--bg-secondary);
+    border-radius: 14px;
+    padding: 1.5rem;
+    height: fit-content;
+    position: sticky;
+    top: 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.filters-sidebar.collapsed {
+    display: none;
+}
+
+.filters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filters-header h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.clear-filters-btn {
+    background: none;
+    border: none;
+    color: #00d4ff;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.clear-filters-btn:hover {
+    opacity: 0.7;
+}
+
+.filter-search input {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    transition: border-color 0.2s;
+}
+
+.filter-search input:focus {
+    outline: none;
+    border-color: rgba(0, 212, 255, 0.3);
+}
+
+.filter-search input::placeholder {
+    color: #555;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-group h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #777;
+    margin-bottom: 0.25rem;
+}
+
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.genre-options {
+    max-height: 240px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.genre-options::-webkit-scrollbar {
+    width: 4px;
+}
+
+.genre-options::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 2px;
+}
+
+.filter-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    padding: 0.4rem 0.5rem;
+    border-radius: 6px;
+    transition: all 0.15s;
+}
+
+.filter-group label:hover {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-primary);
+}
+
+.filter-group label.selected {
+    color: #00d4ff;
+    background: rgba(0, 212, 255, 0.06);
+}
+
+.filter-group label input {
+    accent-color: #00d4ff;
+}
+
+/* Listing Content */
+.listing-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.listing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.listing-header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.listing-header-left h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.results-count {
+    background: rgba(255, 255, 255, 0.06);
+    padding: 0.25rem 0.6rem;
+    border-radius: 14px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.listing-header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.filter-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.75rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.view-toggles {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.view-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: none;
+    color: var(--text-secondary);
+    padding: 0.45rem 0.6rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.view-btn:first-child {
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.view-btn.active {
+    background: rgba(0, 212, 255, 0.1);
+    color: #00d4ff;
+}
+
+.sort-dropdown {
+    padding: 0.5rem 0.75rem;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.sort-dropdown:focus {
+    outline: none;
+    border-color: rgba(0, 212, 255, 0.3);
+}
+
+.sort-dropdown option {
+    background: #1a1a1a;
+    color: var(--text-primary);
+}
+
+/* Active Filter Tags */
+.active-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.filter-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.7rem;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: #00d4ff;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-tag:hover {
+    background: rgba(231, 76, 60, 0.1);
+    border-color: rgba(231, 76, 60, 0.3);
+    color: #e74c3c;
+}
+
+/* List View */
+.games-grid.list-view {
+    grid-template-columns: 1fr !important;
+}
+
+.list-view .game-card {
+    flex-direction: row;
+    max-height: 120px;
+}
+
+.list-view .game-image-container {
+    width: 200px;
+    aspect-ratio: unset;
+    height: 120px;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.list-view .game-info {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+}
+
+.list-view .game-pricing {
+    margin-left: auto;
+    margin-top: 0;
+}
+
+/* No Results */
+.no-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+    gap: 0.75rem;
+}
+
+.no-results h3 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+}
+
+.no-results p {
+    color: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .filters-sidebar {
+        width: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .game-listing-page {
+        flex-direction: column;
+    }
+
+    .filters-sidebar {
+        width: 100%;
+        position: static;
+    }
+
+    .listing-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .listing-header-right {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .list-view .game-card {
+        flex-direction: column;
+        max-height: none;
+    }
+
+    .list-view .game-image-container {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
+    .list-view .game-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .list-view .game-pricing {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .listing-header-left h2 {
+        font-size: 1.2rem;
+    }
+
+    .sort-dropdown {
+        width: 100%;
+    }
+
+    .listing-header-right {
+        flex-direction: column;
+    }
+}
